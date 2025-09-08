@@ -1,0 +1,276 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for travel safety theme with sophisticated grays and vibrant purple accents */
+  --background: oklch(0.98 0.005 264);
+  --foreground: oklch(0.15 0.01 264);
+  --card: oklch(0.95 0.01 264);
+  --card-foreground: oklch(0.15 0.01 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 264);
+  --primary: oklch(0.55 0.18 264);
+  --primary-foreground: oklch(0.98 0.005 264);
+  --secondary: oklch(0.92 0.01 264);
+  --secondary-foreground: oklch(0.25 0.02 264);
+  --muted: oklch(0.94 0.01 264);
+  --muted-foreground: oklch(0.45 0.02 264);
+  --accent: oklch(0.55 0.18 264);
+  --accent-foreground: oklch(0.98 0.005 264);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 264);
+  --border: oklch(0.88 0.01 264);
+  --input: oklch(0.95 0.01 264);
+  --ring: oklch(0.55 0.18 264 / 0.3);
+  --chart-1: oklch(0.5 0.2 264);
+  --chart-2: oklch(0.6 0.15 200);
+  --chart-3: oklch(0.65 0.18 160);
+  --chart-4: oklch(0.7 0.2 30);
+  --chart-5: oklch(0.55 0.22 25);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.96 0.01 264);
+  --sidebar-foreground: oklch(0.15 0.01 264);
+  --sidebar-primary: oklch(0.55 0.18 264);
+  --sidebar-primary-foreground: oklch(0.98 0.005 264);
+  --sidebar-accent: oklch(0.92 0.01 264);
+  --sidebar-accent-foreground: oklch(0.25 0.02 264);
+  --sidebar-border: oklch(0.88 0.01 264);
+  --sidebar-ring: oklch(0.55 0.18 264 / 0.3);
+
+  /* Added accessibility font scaling variable */
+  --accessibility-font-scale: 1;
+}
+
+.dark {
+  /* Dark mode tokens optimized for travel safety theme with proper contrast */
+  --background: oklch(0.12 0.02 264);
+  --foreground: oklch(0.95 0.01 264);
+  --card: oklch(0.15 0.02 264);
+  --card-foreground: oklch(0.95 0.01 264);
+  --popover: oklch(0.15 0.02 264);
+  --popover-foreground: oklch(0.95 0.01 264);
+  --primary: oklch(0.65 0.2 264);
+  --primary-foreground: oklch(0.12 0.02 264);
+  --secondary: oklch(0.2 0.02 264);
+  --secondary-foreground: oklch(0.95 0.01 264);
+  --muted: oklch(0.18 0.02 264);
+  --muted-foreground: oklch(0.65 0.02 264);
+  --accent: oklch(0.65 0.2 264);
+  --accent-foreground: oklch(0.12 0.02 264);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.95 0.01 264);
+  --border: oklch(0.22 0.02 264);
+  --input: oklch(0.18 0.02 264);
+  --ring: oklch(0.65 0.2 264 / 0.4);
+  --chart-1: oklch(0.6 0.22 264);
+  --chart-2: oklch(0.65 0.18 200);
+  --chart-3: oklch(0.7 0.2 160);
+  --chart-4: oklch(0.75 0.22 30);
+  --chart-5: oklch(0.6 0.25 25);
+  --sidebar: oklch(0.1 0.02 264);
+  --sidebar-foreground: oklch(0.95 0.01 264);
+  --sidebar-primary: oklch(0.65 0.2 264);
+  --sidebar-primary-foreground: oklch(0.1 0.02 264);
+  --sidebar-accent: oklch(0.18 0.02 264);
+  --sidebar-accent-foreground: oklch(0.95 0.01 264);
+  --sidebar-border: oklch(0.22 0.02 264);
+  --sidebar-ring: oklch(0.65 0.2 264 / 0.4);
+}
+
+/* Added high contrast mode styles */
+.high-contrast {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --primary: oklch(0.2 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9 0 0);
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.3 0 0);
+  --border: oklch(0 0 0);
+  --input: oklch(1 0 0);
+  --ring: oklch(0 0 0);
+}
+
+.high-contrast.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0 0 0);
+  --card-foreground: oklch(1 0 0);
+  --primary: oklch(0.8 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.1 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.05 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --border: oklch(1 0 0);
+  --input: oklch(0 0 0);
+  --ring: oklch(1 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Added accessibility font scaling */
+    font-size: calc(1rem * var(--accessibility-font-scale));
+  }
+
+  /* Added accessibility focus styles */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Added reduced motion support */
+  .reduce-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Added screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Updated glassmorphism classes with better contrast */
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/20;
+  }
+
+  .neuro {
+    @apply shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.1)];
+  }
+
+  .neuro-dark {
+    @apply shadow-[8px_8px_16px_rgba(0,0,0,0.3),-8px_-8px_16px_rgba(255,255,255,0.05)];
+  }
+
+  /* Added navigation-specific glass styles with better contrast */
+  nav.glass {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  nav.glass-dark {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  /* Ensure proper text contrast in navigation */
+  nav h3,
+  nav .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  /* Fixed gradient text with proper fallback color for accessibility */
+  .bg-gradient-to-r.from-primary.to-primary\/70.bg-clip-text.text-transparent {
+    color: hsl(var(--primary)) !important;
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.7));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Fallback for browsers that don't support background-clip: text */
+  @supports not (-webkit-background-clip: text) {
+    .bg-gradient-to-r.from-primary.to-primary\/70.bg-clip-text.text-transparent {
+      color: hsl(var(--primary)) !important;
+      -webkit-text-fill-color: unset;
+    }
+  }
+
+  /* High contrast mode override for gradient text */
+  .high-contrast .bg-gradient-to-r.from-primary.to-primary\/70.bg-clip-text.text-transparent {
+    color: hsl(var(--foreground)) !important;
+    background: none !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+  }
+
+  /* Added accessibility-friendly button styles */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Added high contrast mode button styles */
+  .high-contrast button,
+  .high-contrast [role="button"] {
+    @apply border-2 border-foreground;
+  }
+
+  /* Added keyboard navigation indicators */
+  .keyboard-navigation *:focus {
+    @apply outline-2 outline-dashed outline-primary outline-offset-2;
+  }
+
+  /* Added specific contrast fixes for card text */
+  .glass h3,
+  .glass-dark h3 {
+    @apply text-foreground;
+  }
+
+  .glass p,
+  .glass-dark p {
+    @apply text-muted-foreground;
+  }
+}
