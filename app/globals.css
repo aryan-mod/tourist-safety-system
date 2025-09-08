@@ -192,11 +192,11 @@
 
   /* Updated glassmorphism classes with better contrast */
   .glass {
-    @apply bg-white/20 backdrop-blur-md border border-white/30;
+    @apply bg-white/80 backdrop-blur-md border border-white/40;
   }
 
   .glass-dark {
-    @apply bg-black/20 backdrop-blur-md border border-white/20;
+    @apply bg-black/80 backdrop-blur-md border border-white/30;
   }
 
   .neuro {
@@ -214,6 +214,27 @@
 
   nav.glass-dark {
     @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  /* Force proper contrast for all glassmorphism text elements */
+  .glass,
+  .glass-dark {
+    background-color: hsl(var(--card)) !important;
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  .glass *,
+  .glass-dark * {
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  /* Specific fix for floating alert elements */
+  .glass span,
+  .glass-dark span,
+  .glass .text-xs,
+  .glass-dark .text-xs {
+    color: hsl(var(--card-foreground)) !important;
+    font-weight: 600 !important;
   }
 
   /* Ensure proper text contrast in navigation */
@@ -271,6 +292,11 @@
 
   .glass p,
   .glass-dark p {
-    @apply text-muted-foreground;
+    @apply text-foreground;
+  }
+
+  .glass span,
+  .glass-dark span {
+    @apply text-foreground;
   }
 }

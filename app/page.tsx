@@ -264,7 +264,7 @@ export default function LandingPage() {
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
                 >
                   <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                  <span className="text-xs">{t("alerts.safeZoneActive") || "Safe Zone Active"}</span>
+                  <span className="text-xs text-foreground font-medium">Safe Zone Active</span>
                 </motion.div>
               </div>
             </motion.div>
