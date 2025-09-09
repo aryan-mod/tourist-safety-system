@@ -7,6 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import { LanguageProvider } from "@/contexts/language-context"
 import { AccessibilityProvider } from "@/contexts/accessibility-context"
+import { GeminiChatbot } from "@/components/gemini-chatbot"
+import { SidebarNavigation } from "@/components/sidebar-navigation"
+import { TopNavbar } from "@/components/top-navbar"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -27,7 +30,16 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             <LanguageProvider>
-              <AccessibilityProvider>{children}</AccessibilityProvider>
+              <AccessibilityProvider>
+                <div className="flex h-screen bg-background">
+                  <SidebarNavigation />
+                  <div className="flex-1 flex flex-col overflow-hidden">
+                    <TopNavbar />
+                    <main className="flex-1 overflow-y-auto">{children}</main>
+                  </div>
+                </div>
+                <GeminiChatbot />
+              </AccessibilityProvider>
             </LanguageProvider>
           </ThemeProvider>
         </Suspense>
